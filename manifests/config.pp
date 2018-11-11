@@ -15,7 +15,7 @@ class liagent::config {
     ensure  => file,
     owner   => root,
     group   => root,
-    content => epp('liagent/liagent.ini.pp'),
+    content => epp('liagent/liagent.ini.epp'),
     mode    => '0644',
     notify  => Class['liagent::service'],
   }
