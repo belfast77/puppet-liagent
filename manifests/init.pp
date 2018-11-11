@@ -36,7 +36,7 @@ class liagent (
   String $service_name,
   Optional[String] $service_provider,
   Boolean $package_manage,
-  Array[String] $package,
+  String $package,
   String $version,
   String $loginsight_repo,
 )
