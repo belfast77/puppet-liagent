@@ -17,7 +17,7 @@ proto=port=<%= $proto %>
 port=<%= $port %>
 
 ; SSL usage. Default:
-ssl=port=<%= $ %>
+ssl=<%= $port %>
 ; Example of configuration with trusted CA:
 ;ssl=yes
 ;ssl_ca_path=/etc/pki/tls/certs/ca.pem
