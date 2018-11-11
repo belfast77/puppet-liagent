@@ -2,12 +2,22 @@
 #
 # @summary A short summary of the purpose of this class
 #
+# /var/lib/loginsight-agent/liagent.ini
+# 
+# Symbolic Link
+# /etc/liagent.ini
+#
 # @example
 #   include liagent::config
 class liagent::config {
 
-
-#/var/lib/loginsight-agent/liagent.ini
-#/etc/liagent.ini
+  file { $liagent::config_file:
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    content => template('liagent/liagent.ini.pp'),
+    mode    => '0644',
+    notify  => Class['liagent::service'],
+  }
 
 }

@@ -7,6 +7,7 @@
 #
 #
 class liagent (
+  Stdlib::Absolutepath $config_file,
   String $srv_hostname,
   String $proto,
   Optional[Integer[0, 65535]] $port,
