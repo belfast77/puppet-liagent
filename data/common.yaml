@@ -1,0 +1,28 @@
+---
+liagent::ghostname: ~
+liagent::gproto: ~
+liagent::gport: ~
+liagent::gssl: ~
+liagent::gssl_ca_path: ~
+liagent::greconnect: ~
+liagent::gcentral_config: ~
+liagent::gdebug_level: ~
+liagent::gstats_period: ~
+liagent::gsmart_stats: ~
+liagent::gmax_disk_buffer: ~
+liagent::gfilelog: ~
+liagent::gsyslog: ~
+liagent::gdirectory: ~
+liagent::ginclude: ~
+liagent::package_type: ~
+liagent::gauto_update: ~
+liagent::service_manage: ~
+liagent::service_ensure: ~
+liagent::service_enable: ~
+liagent::service_name: ~
+liagent::service_provider: ~
+liagent::package_manage: ~
+liagent::package: ~
+liagent::version: ~
+liagent::loginsight_repo: ~
+
