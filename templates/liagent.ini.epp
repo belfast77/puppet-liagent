@@ -1,5 +1,5 @@
-
-ot@dev-box ~]# cat /etc/liagent.ini 
+; ###  Managed by Puppet  ###
+;
 ; VMware Log Insight Agent configuration. Please save as UTF-8 if you use non-ASCII names / values !
 ; Actual configuration is this file joined with settings from server to form liagent-effective.ini
 ; Note: Restarting the agent is not required after making a configuration change
@@ -7,17 +7,17 @@ ot@dev-box ~]# cat /etc/liagent.ini
 
 [server]
 ; Hostname or IP address of your Log Insight server / cluster load balancer. Default:
-hostname=loginsight.localdomain
+hostname=<%= $hostname %>
 
 ; Protocol can be cfapi (Log Insight REST API), syslog. Default:
-;proto=cfapi
+proto=port=<%= $proto %>
 
 ; Log Insight server port to connect to. Default ports for protocols (all TCP):
 ; syslog: 514; syslog with ssl: 6514; cfapi: 9000; cfapi with ssl: 9543. Default:
-port=9543
+port=<%= $port %>
 
 ; SSL usage. Default:
-ssl=yes
+ssl=port=<%= $ %>
 ; Example of configuration with trusted CA:
 ;ssl=yes
 ;ssl_ca_path=/etc/pki/tls/certs/ca.pem
@@ -49,17 +49,17 @@ ssl=yes
 
 ; Uncomment the appropriate section to collect system logs
 ; The recommended way is to enable the Linux content pack from LI server
-[filelog|syslog]
-directory=/var/log
-include=messages;messages.?;syslog;syslog.?
+[filelog|<%= $logtype %>]
+directory=<%= $directory %>
+include=<%= $include %>
 
 [update]
 ; Do not change this parameter
-package_type=rpm
+package_type=<%= $package_type %>
 
 
 ; Enable automatic update of the agent. If enabled:
 ; the agent will silently check for updates from the server and
 ; if available will automatically download and apply the update.
-;auto_update=yes
+;auto_update=<%= $auto_update %>
 
