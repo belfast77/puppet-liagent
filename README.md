@@ -2,10 +2,6 @@
 # WORK IN PROGRESS DO NOT USE
 # liagent ( VMware Log Insight Agent )
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
 #### Table of Contents
 
 1. [Description](#description)
@@ -25,9 +21,16 @@ This should be a fairly short description helps the user decide if your module i
 
 ## Setup
 
+
+
+
+
+
 ### What liagent affects 
 
-This Module install the VMware Loginsight Agent.
+This Module install the VMware Loginsight Agent Package.
+
+It configures the agent via the config file  /var/lib/loginsight-agent/liagent.ini
 
 It also creates a LogInsight_Agent Yum repo if required.
 
