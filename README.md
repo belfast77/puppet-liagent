@@ -39,14 +39,13 @@ If there's more that they should know about, though, this is the place to mentio
 
 In order to Test this module against a working Log Insight Server you can setup a VMware trial for the following products:
 
-VMware vSphere Hypervisor 6.7
-https://my.vmware.com/en/web/vmware/evalcenter?p=free-esxi6
++ VMware vSphere Hypervisor 6.7
++ https://my.vmware.com/en/web/vmware/evalcenter?p=free-esxi6
++ VMware vCenter Server Appliance 2018-10-16 | 6.7.0U1 | 3.95 GB | iso
++ https://my.vmware.com/group/vmware/evalcenter?p=vsphere-eval
++ VMware vRealize Log Insight 4.7.0 - Virtual Appliance
++https://my.vmware.com/group/vmware/evalcenter?p=vr-li
 
-VMware vCenter Server Appliance 2018-10-16 | 6.7.0U1 | 3.95 GB | iso
-https://my.vmware.com/group/vmware/evalcenter?p=vsphere-eval
-
-VMware vRealize Log Insight 4.7.0 - Virtual Appliance
-https://my.vmware.com/group/vmware/evalcenter?p=vr-li
 
 Setting this up is out of the scope of this documentation but essentially you need to setup a VMware Lab environemnt.
 
@@ -56,12 +55,12 @@ Import and Configure VMware vCenter Server Appliance 6.7.0U1
 
 Import VMware vRealize Log Insight 4.7.0 - Virtual Appliance via vCenter Server
 
- :: Note a resaonable spec lab setup is required, this was tested on a
- :: Intel ® NUC6I7KYK Micro Intel® 2600 MHz SOC, IRIS PRO 580. With 32GB Ram
- :: Check https://www.vmware.com/resources/compatibility/search.php
- :: vCenter Server Appliance - Tiny environment (up to 10 hosts or 100 virtual machines) requires 2 vCPUs & 10 GB Ram
++ Note a resaonable spec lab setup is required, this was tested on a
++ Intel ® NUC6I7KYK Micro Intel® 2600 MHz SOC, IRIS PRO 580. With 32GB Ram
++ Check https://www.vmware.com/resources/compatibility/search.php
++ vCenter Server Appliance - Tiny environment (up to 10 hosts or 100 virtual machines) requires 2 vCPUs & 10 GB Ram
     - The vCenter Server Appliance can be shutdown once the Loginsight appliance is installed if memory is an issue.
- :: VMware vRealize Log Insight 4.7.0 - Virtual Appliance requires 4 vCPUs & 8 GB Ram
++ VMware vRealize Log Insight 4.7.0 - Virtual Appliance requires 4 vCPUs & 8 GB Ram
 
 
 Further free training can be obtained with a VMware Learning Zone Basic Subscription.
