@@ -8,7 +8,7 @@
 2. [Setup - The basics of getting started with liagent](#setup)
     * [What liagent affects](#what-liagent-affects)
     * [Setup requirements](#setup-requirements)
-    * [Yum Repo Creation Optional](#yum_repo_creation_optional)
+    * [Yum Repo Creation Optional](#yum-repo-creation-optional)
     * [Beginning with liagent](#beginning-with-liagent)
 3. [Usage - Configuration options and additional functionality](#usage)
 4. [Limitations - OS compatibility, etc.](#limitations)
