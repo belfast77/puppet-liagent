@@ -1,6 +1,6 @@
 ---
 liagent::config_file:: ~
-liagent::hostname: 'loginsight.localdomain'
+liagent::srv_hostname: 'loginsight.localdomain'
 liagent::proto: 'cfapi'
 liagent::port: 9543
 liagent::ssl: 'yes'
