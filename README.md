@@ -1,4 +1,5 @@
 
+# WORK IN PROGRESS DO NOT USE
 # liagent ( VMware Log Insight Agent )
 
 Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
@@ -24,21 +25,46 @@ This should be a fairly short description helps the user decide if your module i
 
 ## Setup
 
-### What liagent affects **OPTIONAL**
+### What liagent affects 
 
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
+This Module install the VMware Loginsight Agent.
 
-If there's more that they should know about, though, this is the place to mention:
+It also creates a LogInsight_Agent Yum repo if required.
 
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+### Setup Requirements 
 
-### Setup Requirements **OPTIONAL**
+In order to Test this module against a working Log Insight Server you can setup a VMware trial for the following products:
 
-If your module requires anything extra before setting up (pluginsync enabled, another module, etc.), mention it here.
++ VMware vSphere Hypervisor 6.7
++ https://my.vmware.com/en/web/vmware/evalcenter?p=free-esxi6
++ VMware vCenter Server Appliance 2018-10-16 | 6.7.0U1 | 3.95 GB | iso
++ https://my.vmware.com/group/vmware/evalcenter?p=vsphere-eval
++ VMware vRealize Log Insight 4.7.0 - Virtual Appliance
++https://my.vmware.com/group/vmware/evalcenter?p=vr-li
 
-If your most recent release breaks compatibility or requires particular steps for upgrading, you might want to include an additional "Upgrading" section here.
+
+Setting this up is out of the scope of this documentation but essentially you need to setup a VMware Lab environemnt.
+
+Install and configure VMware vSphere Hypervisor 6.7
+
+Import and Configure VMware vCenter Server Appliance 6.7.0U1
+
+Import VMware vRealize Log Insight 4.7.0 - Virtual Appliance via vCenter Server
+
++ Note a resaonable spec lab setup is required, this was tested on a
++ Intel ® NUC6I7KYK Micro Intel® 2600 MHz SOC, IRIS PRO 580. With 32GB Ram
++ Check https://www.vmware.com/resources/compatibility/search.php
++ vCenter Server Appliance - Tiny environment (up to 10 hosts or 100 virtual machines) requires 2 vCPUs & 10 GB Ram
+    - The vCenter Server Appliance can be shutdown once the Loginsight appliance is installed if memory is an issue.
++ VMware vRealize Log Insight 4.7.0 - Virtual Appliance requires 4 vCPUs & 8 GB Ram
+
+
+Further free training can be obtained with a VMware Learning Zone Basic Subscription.
+
+https://mylearn.vmware.com/
+
+The puppet module 'puppetlabs-stdlib'  is also required and testing was done with version '5.1.0'.
+
 
 ### Beginning with liagent
 

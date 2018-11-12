@@ -1,0 +1,28 @@
+---
+liagent::config_file:: ~
+liagent::srv_hostname: 'loginsight.localdomain'
+liagent::proto: 'cfapi'
+liagent::port: 9543
+liagent::ssl: 'yes'
+liagent::ssl_ca_path: ~
+liagent::reconnect: ~
+liagent::central_config: 'no' 
+liagent::debug_level: ~
+liagent::stats_period: ~
+liagent::smart_stats: 'no'
+liagent::max_disk_buffer: ~
+liagent::filelog: 'filelog'
+liagent::logtype: ~
+liagent::directory: ~
+liagent::include: ~
+liagent::package_type: ~
+liagent::auto_update: 'no'
+liagent::service_manage: ~
+liagent::service_ensure: ~
+liagent::service_enable: ~
+liagent::service_name: ~
+liagent::service_provider: ~
+liagent::package_manage: ~
+liagent::package: ~
+liagent::version: ~
+
