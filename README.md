@@ -17,12 +17,35 @@
 
 > vRealize Log lnsight is a highly scalable log management application with intuitive, actionable dashboards, sophisticated analytics and broad third-party extensibility. It provides deep operational visibility and faster troubleshooting across physical, virtual and cloud environments.
 
+This module installs and configures the VMware Log Insight Agent from a yum repo.
+
 ## Setup
 
 
+To begin using this module, use the Puppet Module Tool (PMT) from the command line to install this module:
 
+puppet module install liagent
 
+This will place the module into your primary module path if you do not utilize the --target-dir directive.
 
+You can also use r10k or code-manager to deploy the module so ensure that you have the correct entry in your Puppetfile.
+
+Once the module is in place, there is just a little setup needed.
+
+This module was intailly designed to work with Hiera
+
+Therefore a node deffinition file should be created.
+
+For example:
+
+liagent::srv_hostname: 'loginsight.localdomain'
+liagent::service_manage: true
+liagent::service_ensure: true
+liagent::service_enable: true
+liagent::service_name: 'liagentd'
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
+liagent::version: '4.7.0-9602262'
 
 ### What liagent affects 
 
@@ -88,7 +111,6 @@ For each element (class, defined type, function, and so on), list:
   * Valid values, if the data type doesn't make it obvious.
   * Default value, if any.
 
-For example:
 
 ```
 ### `pet::cat`
