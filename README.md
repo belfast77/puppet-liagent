@@ -25,15 +25,11 @@ This should be a fairly short description helps the user decide if your module i
 
 ## Setup
 
-### What liagent affects **OPTIONAL**
+### What liagent affects 
 
-If it's obvious what your module touches, you can skip this section. For example, folks can probably figure out that your mysql_instance module affects their MySQL instances.
+This Module install the VMware Loginsight Agent.
 
-If there's more that they should know about, though, this is the place to mention:
-
-* Files, packages, services, or operations that the module will alter, impact, or execute.
-* Dependencies that your module automatically installs.
-* Warnings or other important notices.
+It also creates a LogInsight_Agent Yum repo if required.
 
 ### Setup Requirements 
 
