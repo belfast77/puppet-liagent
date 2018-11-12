@@ -7,7 +7,7 @@
 
 [server]
 ; Hostname or IP address of your Log Insight server / cluster load balancer. Default:
-hostname=<%= $liagent::hostname %>
+hostname=<%= $liagent::srv_hostname %>
 
 ; Protocol can be cfapi (Log Insight REST API), syslog. Default:
 proto=<%= $liagent::proto %>
