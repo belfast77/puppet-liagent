@@ -25,5 +25,4 @@ liagent::service_provider: ~
 liagent::package_manage: ~
 liagent::package: ~
 liagent::version: ~
-liagent::loginsight_repo: ~
 
