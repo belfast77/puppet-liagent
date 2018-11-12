@@ -89,6 +89,17 @@ https://mylearn.vmware.com/
 
 The puppet module 'puppetlabs-stdlib'  is also required and testing was done with version '5.1.0'.
 
+### Yum Repo Creation Optional
+Due to VMware not offering a public repo for the agent you will need to create a local repo on a simple web server (Apache, Nginx or Lighttpd) that will host the rpm in a yum repo. 
+
+In order to have the commands createrepo and repo-sync available, install the packages createrepo and yum-utils respectively, which are not available in the default RHEL setup:
+
+```
+# yum install -y createrepo yum-utils
+# mkdir -p /var/www/html/repo
+# cp VMware-Log-Insight-Agent-4.7.0-9602262.noarch_192.168.0.56.rpm /var/www/html/repo
+# createrepo /var/www/html/repo
+```
 
 ### Beginning with liagent
 
