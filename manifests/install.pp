@@ -12,14 +12,14 @@ class liagent::install {
 
       package { $liagent::package:
         ensure  => installed,
-        require => Yumrepo['$liagent::loginsight_repo'],
+        require => Yumrepo['LogInsight_Agent'],
       }
 
     } else {
 
       package { $liagent::package:
         ensure  => $liagent::version,
-        require => Yumrepo['$liagent::loginsight_repo'],
+        require => Yumrepo['LogInsight_Agent'],
       }
     }
   }
