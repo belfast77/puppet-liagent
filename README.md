@@ -2,16 +2,13 @@
 # WORK IN PROGRESS DO NOT USE
 # liagent ( VMware Log Insight Agent )
 
-Welcome to your new module. A short overview of the generated parts can be found in the PDK documentation at https://puppet.com/pdk/latest/pdk_generating_modules.html .
-
-The README template below provides a starting point with details about what information to include in your README.
-
 #### Table of Contents
 
 1. [Description](#description)
 2. [Setup - The basics of getting started with liagent](#setup)
     * [What liagent affects](#what-liagent-affects)
     * [Setup requirements](#setup-requirements)
+    * [Yum Repo Creation Optional](#yum-repo-creation-optional)
     * [Beginning with liagent](#beginning-with-liagent)
 3. [Usage - Configuration options and additional functionality](#usage)
 4. [Limitations - OS compatibility, etc.](#limitations)
@@ -19,15 +16,43 @@ The README template below provides a starting point with details about what info
 
 ## Description
 
-Briefly tell users why they might want to use your module. Explain what your module does and what kind of problems users can solve with it.
+> vRealize Log lnsight is a highly scalable log management application with intuitive, actionable dashboards, sophisticated analytics and broad third-party extensibility. It provides deep operational visibility and faster troubleshooting across physical, virtual and cloud environments.
 
-This should be a fairly short description helps the user decide if your module is what they want.
+This module installs and configures the VMware Log Insight Agent from a yum repo.
 
 ## Setup
 
+
+To begin using this module, use the Puppet Module Tool (PMT) from the command line to install this module:
+
+> puppet module install liagent
+
+This will place the module into your primary module path if you do not utilize the --target-dir directive.
+
+You can also use r10k or code-manager to deploy the module so ensure that you have the correct entry in your Puppetfile.
+
+Once the module is in place, there is just a little setup needed.
+
+This module was intailly designed to work with Hiera
+
+Therefore a node deffinition file should be created.
+
+For example:
+```
+liagent::srv_hostname: 'loginsight.localdomain'
+liagent::service_manage: true
+liagent::service_ensure: true
+liagent::service_enable: true
+liagent::service_name: 'liagentd'
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
+liagent::version: '4.7.0-9602262'
+```
 ### What liagent affects 
 
-This Module install the VMware Loginsight Agent.
+This Module install the VMware Loginsight Agent Package.
+
+It configures the agent via the config file  /var/lib/loginsight-agent/liagent.ini
 
 It also creates a LogInsight_Agent Yum repo if required.
 
@@ -65,6 +90,17 @@ https://mylearn.vmware.com/
 
 The puppet module 'puppetlabs-stdlib'  is also required and testing was done with version '5.1.0'.
 
+## Yum Repo Creation Optional
+Due to VMware not offering a public repo for the agent you will need to create a local repo on a simple web server (Apache, Nginx or Lighttpd) that will host the rpm in a yum repo. 
+
+In order to have the commands createrepo and repo-sync available, install the packages createrepo and yum-utils respectively, which are not available in the default RHEL setup:
+
+```
+# yum install -y createrepo yum-utils
+# mkdir -p /var/www/html/repo
+# cp VMware-Log-Insight-Agent-4.7.0-9602262.noarch_192.168.0.56.rpm /var/www/html/repo
+# createrepo /var/www/html/repo
+```
 
 ### Beginning with liagent
 
@@ -87,7 +123,6 @@ For each element (class, defined type, function, and so on), list:
   * Valid values, if the data type doesn't make it obvious.
   * Default value, if any.
 
-For example:
 
 ```
 ### `pet::cat`
