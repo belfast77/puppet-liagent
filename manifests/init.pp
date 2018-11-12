@@ -46,6 +46,7 @@ class liagent (
   contain liagent::install
   contain liagent::config
   contain liagent::service
+  include liagent::yum
 
   Class['::liagent::install']
   -> Class['::liagent::config']
