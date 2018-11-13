@@ -107,7 +107,7 @@ In order to have the commands createrepo and repo-sync available, install the pa
 ```
 # yum install -y createrepo yum-utils
 # mkdir -p /var/www/html/repo
-# cp VMware-Log-Insight-Agent-4.7.0-9602262.noarch_192.168.0.56.rpm /var/www/html/repo
+# cp VMware-Log-Insight-Agent-* /var/www/html/repo
 # createrepo /var/www/html/repo
 ```
 
