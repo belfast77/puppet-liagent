@@ -207,6 +207,7 @@ CentOS: 6, 7
 ## Development
 
 Currently tested manually on Centos 7, but will eventually add automated testing and are targeting compatibility with other platforms.
+
 Tested with Puppet 6
 
 ## VMware Turoial Videos
