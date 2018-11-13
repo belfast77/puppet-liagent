@@ -17,7 +17,7 @@ proto=<%= $liagent::proto %>
 port=<%= $liagent::port %>
 
 ; SSL usage. Default:
-ssl=<%= $liagent::port %>
+ssl=<%= $liagent::ssl %>
 ; Example of configuration with trusted CA:
 ;ssl=yes
 ;ssl_ca_path=/etc/pki/tls/certs/ca.pem
