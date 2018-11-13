@@ -1,4 +1,3 @@
-# WORK IN PROGRESS DO NOT USE
 # liagent ( VMware Log Insight Agent )
 
 #### Table of Contents
@@ -21,7 +20,7 @@ This module then installs and configures the VMware Log Insight Agent from a cus
 
 ## Setup
 
-This module does not supply the VMware Log Insight Agent installation files. Installation files will need to be aquired from the Deployed VMware Log Insight Server, and the module configured to use it. Users can use yum or apt to install these components if they're self-hosted.
+This module does not supply the VMware Log Insight Agent installation files. Installation files will need to be aquired from the Deployed VMware Log Insight Server, and the module configured to use it. Users can use yum to install these components if they're self-hosted.
 
 If your deployed VMware Log Insight Agent has the hostname loginsight.localdomain, then your agents can be downloaded from.
 
@@ -40,16 +39,13 @@ You can also use r10k or code-manager to deploy the module so ensure that you ha
 
 Once the module is in place, there is just a little setup needed.
 
-This module was intailly designed to work with Hiera
+This module was designed to work with Hiera in-module Hiera data.
 
 Therefore a node deffinition file should be created.
 
 For example:
 ```
 liagent::srv_hostname: 'loginsight.localdomain'
-liagent::service_manage: true
-liagent::service_ensure: true
-liagent::service_enable: true
 liagent::service_name: 'liagentd'
 liagent::package_manage: true
 liagent::package: 'VMware-Log-Insight-Agent'
@@ -113,53 +109,109 @@ In order to have the commands createrepo and repo-sync available, install the pa
 
 ### Beginning with liagent
 
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+Once the VMware vRealize Log Insight agent packages are hosted in the users repository the module is ready to deploy.
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+If a user is installing liagent with packages provided from their local custom repo, this is the most basic way of installing Splunk Server with default settings:
+
+```
+include ::splunk
+```
+
+For example:
+```
+liagent::srv_hostname: 'loginsight.localdomain'
+liagent::service_name: 'liagentd'
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
+liagent::version: '4.7.0-9602262'
+liagent::loginsight_repo: 'LogInsight_Agent'
+```
+
+This module uses in-module Hiera data. The data directory contains the Hiera files.
+
+```
+liagent/data/
+├── common.yaml
+└── RedHat-family.yaml
+```
+liagent/data/common.yaml
+
+```
+---
+liagent::srv_hostname: ~
+liagent::proto: 'cfapi'
+liagent::port: 9543
+liagent::ssl: 'yes'
+liagent::ssl_ca_path: ~
+liagent::reconnect: ~
+liagent::central_config: 'no'
+liagent::debug_level: ~
+liagent::stats_period: ~
+liagent::smart_stats: 'no'
+liagent::max_disk_buffer: ~
+liagent::logtype: ~
+liagent::directory: ~
+liagent::include: ~
+liagent::package_type: ~
+liagent::auto_update: 'no'
+liagent::service_manage: true
+liagent::service_ensure: true
+liagent::service_enable: true
+liagent::service_name: liagentd
+liagent::service_provider: ~
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
+liagent::version: ~
+```
+liagent/data/RedHat-family.yaml 
+
+```
+---
+liagent::config_file: '/var/lib/loginsight-agent/liagent.ini'
+liagent::logtype: 'syslog'
+liagent::directory: '/var/log'
+liagent::include: 'include=messages;messages.?;syslog;syslog.?'
+liagent::package_type: 'rpm
+```
+
+These can be overriiden in the Puppet Console Configuration section or in the three independent layers of configuration.
+
+1. Global
+2. Environment
+3. Module
+
+Further reading on Hiera 5:
+
+https://puppet.com/docs/puppet/5.0/hiera_migrate_modules.html#module-data-with-yaml-data-files
+
+https://puppet.com/docs/puppet/5.0/hiera_layers.html
 
 ## Reference
 
 This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
 
-If you aren't ready to use Strings yet, manually create a REFERENCE.md in the root of your module directory and list out each of your module's classes, defined types, facts, functions, Puppet tasks, task plans, and resource types and providers, along with the parameters for each.
-
-For each element (class, defined type, function, and so on), list:
-
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
-
-
-```
-### `pet::cat`
-
-#### Parameters
-
-##### `meow`
-
-Enables vocalization in your cat. Valid options: 'string'.
-
-Default: 'medium-loud'.
-```
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other warnings.
+This Version is compatible with:
+
+Operating Systems:
+
+RedHat: 6, 7
+
+CentOS: 6, 7
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
+Currently tested manually on Centos 7, but will eventually add automated testing and are targeting compatibility with other platforms.
 
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+Tested with Puppet 6
 
 ## VMware Turoial Videos
 
-Here are some great tutorials from [sysadmintutorials.com](https://www.sysadmintutorials.com) to setup all that you need to get started with this module.
+Here are some great tutorials from [sysadmintutorials.com](https://www.sysadmintutorials.com) to setup all that you need to get started with setting up a test lab for this module.
 
 [![vSphere 6.7 - How to install and configure VMware ESXi 6.7](http://img.youtube.com/vi/AQLFQW0GvV0/0.jpg)](https://www.youtube.com/watch?v=AQLFQW0GvV0)
 
