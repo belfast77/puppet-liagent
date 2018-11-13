@@ -1,4 +1,3 @@
-# WORK IN PROGRESS DO NOT USE
 # liagent ( VMware Log Insight Agent )
 
 #### Table of Contents
