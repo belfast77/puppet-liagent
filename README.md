@@ -89,6 +89,7 @@ Import VMware vRealize Log Insight 4.7.0 - Virtual Appliance via vCenter Server
 + vCenter Server Appliance - Tiny environment (up to 10 hosts or 100 virtual machines) requires 2 vCPUs & 10 GB Ram
     - The vCenter Server Appliance can be shutdown once the Loginsight appliance is installed if memory is an issue.
 + VMware vRealize Log Insight 4.7.0 - Virtual Appliance requires 4 vCPUs & 8 GB Ram
+    - However in this test lab we got away with 2 vCPUs & 4 GB Ram
 
 
 Further free training can be obtained with a VMware Learning Zone Basic Subscription.
