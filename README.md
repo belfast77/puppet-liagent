@@ -29,10 +29,10 @@ This module then installs and configures the VMware Log Insight Agent from a cus
 
 ## Setup
 
-
 To begin using this module, use the Puppet Module Tool (PMT) from the command line to install this module:
-
-> puppet module install liagent
+```
+# puppet module install liagent
+```
 
 This will place the module into your primary module path if you do not utilize the --target-dir directive.
 
