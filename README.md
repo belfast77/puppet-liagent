@@ -219,7 +219,7 @@ Currently tested manually on Centos 7, but will eventually add automated testing
 
 Tested with Puppet 6
 
-## VMware Turoial Videos
+## VMware Tutroial Videos
 
 Here are some great tutorials from [sysadmintutorials.com](https://www.sysadmintutorials.com) to setup all that you need to get started with setting up a test lab for this module.
 
