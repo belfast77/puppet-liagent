@@ -166,13 +166,13 @@ liagent::package_type: 'rpm
 ```
 
 A node deffinition file should be created because some vales are required.
-
+```
 liagent::srv_hostname:
-
+```
 and 
-
+```
 liagent::loginsight_repo: 
-
+```
 
 For example:
 
