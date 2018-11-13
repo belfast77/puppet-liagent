@@ -24,7 +24,6 @@ class liagent (
   String $smart_stats,
 #  Boolean[Stdlib::bool2str[true, 'yes', 'no']] $smart_stats,
   Optional[Integer[100, 2000]] $max_disk_buffer,
-  String $filelog,
   String $logtype,
   Stdlib::Absolutepath $directory,
   String $include,
