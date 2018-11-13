@@ -17,7 +17,15 @@
 
 > vRealize Log lnsight is a highly scalable log management application with intuitive, actionable dashboards, sophisticated analytics and broad third-party extensibility. It provides deep operational visibility and faster troubleshooting across physical, virtual and cloud environments.
 
-This module installs and configures the VMware Log Insight Agent from a yum repo.
+This module does not supply the VMware Log Insight Agent installation files. Installation files will need to be aquired from the Deployed VMware Log Insight Server, and the module configured to use it. Users can use yum or apt to install these components if they're self-hosted.
+
+If your deployed VMware Log Insight Agent has the hostname loginsight.localdomain, then your agents can be downloaded from.
+
+https://loginsight.localdomain/admin/agents/
+
+Once you have the agent you can setup an configure a local Yum repo, see [Yum Repo Creation Optional](#yum-repo-creation-optional)
+
+This module then installs and configures the VMware Log Insight Agent from a custom yum repo.
 
 ## Setup
 
@@ -146,3 +154,13 @@ In the Development section, tell other users the ground rules for contributing t
 ## Release Notes/Contributors/Etc. **Optional**
 
 If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+
+## VMware Turoial Videos
+
+Here are some great tutorials from [sysadmintutorials.com](https://www.sysadmintutorials.com) to setup all that you need to get started with this module.
+
+[![vSphere 6.7 - How to install and configure VMware ESXi 6.7](http://img.youtube.com/vi/AQLFQW0GvV0/0.jpg)](https://www.youtube.com/watch?v=AQLFQW0GvV0)
+
+[![vSphere 6.7 - How to install and configure VMware vCenter 6.7 Appliance](http://img.youtube.com/vi/U-rilkWMkO4/0.jpg)](http://www.youtube.com/watch?v=U-rilkWMkO4)
+
+[![vSphere 6.5 - How to install and configure VMware vRealize Log Insight 4](http://img.youtube.com/vi/aJeTBO_rWms/0.jpg)](http://www.youtube.com/watch?v=aJeTBO_rWms)
