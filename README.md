@@ -40,7 +40,7 @@ You can also use r10k or code-manager to deploy the module so ensure that you ha
 
 Once the module is in place, there is just a little setup needed.
 
-This module was intailly designed to work with Hiera
+This module was designed to work with Hiera in-module Hiera data.
 
 Therefore a node deffinition file should be created.
 
@@ -114,6 +114,22 @@ Once the VMware vRealize Log Insight agent packages are hosted in the users repo
 
 ## Usage
 
+If a user is installing liagent with packages provided from their local custom repo, this is the most basic way of installing Splunk Server with default settings:
+
+```
+include ::splunk
+```
+
+For example:
+```
+liagent::srv_hostname: 'loginsight.localdomain'
+liagent::service_name: 'liagentd'
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
+liagent::version: '4.7.0-9602262'
+liagent::loginsight_repo: 'LogInsight_Agent'
+```
+
 This module uses in-module Hiera data. The data directory contains the Hiera files.
 
 ```
@@ -177,39 +193,18 @@ https://puppet.com/docs/puppet/5.0/hiera_layers.html
 
 This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
 
-If you aren't ready to use Strings yet, manually create a REFERENCE.md in the root of your module directory and list out each of your module's classes, defined types, facts, functions, Puppet tasks, task plans, and resource types and providers, along with the parameters for each.
-
-For each element (class, defined type, function, and so on), list:
-
-  * The data type, if applicable.
-  * A description of what the element does.
-  * Valid values, if the data type doesn't make it obvious.
-  * Default value, if any.
-
-
-```
-### `pet::cat`
-
-#### Parameters
-
-##### `meow`
-
-Enables vocalization in your cat. Valid options: 'string'.
-
-Default: 'medium-loud'.
-```
 
 ## Limitations
 
-In the Limitations section, list any incompatibilities, known issues, or other warnings.
+This Version 1.0.1 is compatible with:
+Operating Systems:
+RedHat: 6, 7
+CentOS: 6, 7
 
 ## Development
 
-In the Development section, tell other users the ground rules for contributing to your project and how they should submit their work.
-
-## Release Notes/Contributors/Etc. **Optional**
-
-If you aren't using changelog, put your release notes here (though you should consider using changelog). You can also add any additional sections you feel are necessary or important to include here. Please use the `## ` header.
+Currently tested manually on Centos 7, but will eventually add automated testing and are targeting compatibility with other platforms.
+Tested with Puppet 6
 
 ## VMware Turoial Videos
 
