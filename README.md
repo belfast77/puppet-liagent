@@ -47,9 +47,6 @@ Therefore a node deffinition file should be created.
 For example:
 ```
 liagent::srv_hostname: 'loginsight.localdomain'
-liagent::service_manage: true
-liagent::service_ensure: true
-liagent::service_enable: true
 liagent::service_name: 'liagentd'
 liagent::package_manage: true
 liagent::package: 'VMware-Log-Insight-Agent'
@@ -113,11 +110,68 @@ In order to have the commands createrepo and repo-sync available, install the pa
 
 ### Beginning with liagent
 
-The very basic steps needed for a user to get the module up and running. This can include setup steps, if necessary, or it can be an example of the most basic use of the module.
+Once the VMware vRealize Log Insight agent packages are hosted in the users repository the module is ready to deploy.
 
 ## Usage
 
-Include usage examples for common use cases in the **Usage** section. Show your users how to use your module to solve problems, and be sure to include code examples. Include three to five examples of the most important or common tasks a user can accomplish with your module. Show users how to accomplish more complex tasks that involve different types, classes, and functions working in tandem.
+This module uses in-module Hiera data. The data directory contains the Hiera files.
+
+```
+liagent/data/
+├── common.yaml
+└── RedHat-family.yaml
+```
+liagent/data/common.yaml
+
+```
+---
+liagent::srv_hostname: ~
+liagent::proto: 'cfapi'
+liagent::port: 9543
+liagent::ssl: 'yes'
+liagent::ssl_ca_path: ~
+liagent::reconnect: ~
+liagent::central_config: 'no'
+liagent::debug_level: ~
+liagent::stats_period: ~
+liagent::smart_stats: 'no'
+liagent::max_disk_buffer: ~
+liagent::logtype: ~
+liagent::directory: ~
+liagent::include: ~
+liagent::package_type: ~
+liagent::auto_update: 'no'
+liagent::service_manage: true
+liagent::service_ensure: true
+liagent::service_enable: true
+liagent::service_name: liagentd
+liagent::service_provider: ~
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
+liagent::version: ~
+```
+liagent/data/RedHat-family.yaml 
+
+```
+---
+liagent::config_file: '/var/lib/loginsight-agent/liagent.ini'
+liagent::logtype: 'syslog'
+liagent::directory: '/var/log'
+liagent::include: 'include=messages;messages.?;syslog;syslog.?'
+liagent::package_type: 'rpm
+```
+
+These can be overriiden in the Puppet Console Configuration section or in the three independent layers of configuration.
+
+1. Global
+2. Environment
+3. Module
+
+Further reading on Hiera 5:
+
+https://puppet.com/docs/puppet/5.0/hiera_migrate_modules.html#module-data-with-yaml-data-files
+
+https://puppet.com/docs/puppet/5.0/hiera_layers.html
 
 ## Reference
 
