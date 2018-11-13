@@ -196,9 +196,12 @@ This section is deprecated. Instead, add reference information to your code as P
 
 ## Limitations
 
-This Version 1.0.1 is compatible with:
+This Version is compatible with:
+
 Operating Systems:
+
 RedHat: 6, 7
+
 CentOS: 6, 7
 
 ## Development
