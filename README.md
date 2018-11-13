@@ -54,6 +54,7 @@ liagent::service_name: 'liagentd'
 liagent::package_manage: true
 liagent::package: 'VMware-Log-Insight-Agent'
 liagent::version: '4.7.0-9602262'
+liagent::loginsight_repo: 'LogInsight_Agent'
 ```
 ### What liagent affects 
 
