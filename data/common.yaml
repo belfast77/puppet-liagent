@@ -1,6 +1,6 @@
 ---
 liagent::config_file:: ~
-liagent::srv_hostname: 'loginsight.localdomain'
+liagent::srv_hostname: ~
 liagent::proto: 'cfapi'
 liagent::port: 9543
 liagent::ssl: 'yes'
@@ -11,18 +11,17 @@ liagent::debug_level: ~
 liagent::stats_period: ~
 liagent::smart_stats: 'no'
 liagent::max_disk_buffer: ~
-liagent::filelog: 'filelog'
 liagent::logtype: ~
 liagent::directory: ~
 liagent::include: ~
 liagent::package_type: ~
 liagent::auto_update: 'no'
-liagent::service_manage: ~
-liagent::service_ensure: ~
-liagent::service_enable: ~
-liagent::service_name: ~
+liagent::service_manage: true 
+liagent::service_ensure: true
+liagent::service_enable: true
+liagent::service_name: liagentd
 liagent::service_provider: ~
-liagent::package_manage: ~
-liagent::package: ~
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
 liagent::version: ~
 

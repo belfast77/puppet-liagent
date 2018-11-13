@@ -53,10 +53,6 @@ ssl=<%= $liagent::port %>
 directory=<%= $liagent::directory %>
 include=<%= $liagent::include %>
 
-[filelog|sastat]
-directory=/var/log/sa
-include=*
-
 [update]
 ; Do not change this parameter
 package_type=<%= $liagent::package_type %>
