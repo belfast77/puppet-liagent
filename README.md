@@ -21,7 +21,7 @@ This module then installs and configures the VMware Log Insight Agent from a cus
 
 ## Setup
 
-This module does not supply the VMware Log Insight Agent installation files. Installation files will need to be aquired from the Deployed VMware Log Insight Server, and the module configured to use it. Users can use yum or apt to install these components if they're self-hosted.
+This module does not supply the VMware Log Insight Agent installation files. Installation files will need to be aquired from the Deployed VMware Log Insight Server, and the module configured to use it. Users can use yum to install these components if they're self-hosted.
 
 If your deployed VMware Log Insight Agent has the hostname loginsight.localdomain, then your agents can be downloaded from.
 
