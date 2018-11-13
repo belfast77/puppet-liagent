@@ -17,6 +17,10 @@
 
 > vRealize Log lnsight is a highly scalable log management application with intuitive, actionable dashboards, sophisticated analytics and broad third-party extensibility. It provides deep operational visibility and faster troubleshooting across physical, virtual and cloud environments.
 
+This module then installs and configures the VMware Log Insight Agent from a custom yum repo.
+
+## Setup
+
 This module does not supply the VMware Log Insight Agent installation files. Installation files will need to be aquired from the Deployed VMware Log Insight Server, and the module configured to use it. Users can use yum or apt to install these components if they're self-hosted.
 
 If your deployed VMware Log Insight Agent has the hostname loginsight.localdomain, then your agents can be downloaded from.
@@ -24,10 +28,6 @@ If your deployed VMware Log Insight Agent has the hostname loginsight.localdomai
 https://loginsight.localdomain/admin/agents/
 
 Once you have the agent you can setup an configure a local Yum repo, see [Yum Repo Creation Optional](#yum-repo-creation-optional)
-
-This module then installs and configures the VMware Log Insight Agent from a custom yum repo.
-
-## Setup
 
 To begin using this module, use the Puppet Module Tool (PMT) from the command line to install this module:
 ```
