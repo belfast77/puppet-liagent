@@ -118,17 +118,6 @@ If a user is installing liagent with packages provided from their local custom r
 ```
 include ::splunk
 ```
-
-For example:
-```
-liagent::srv_hostname: 'loginsight.localdomain'
-liagent::service_name: 'liagentd'
-liagent::package_manage: true
-liagent::package: 'VMware-Log-Insight-Agent'
-liagent::version: '4.7.0-9602262'
-liagent::loginsight_repo: 'LogInsight_Agent'
-```
-
 This module uses in-module Hiera data. The data directory contains the Hiera files.
 
 ```
@@ -176,7 +165,28 @@ liagent::include: 'include=messages;messages.?;syslog;syslog.?'
 liagent::package_type: 'rpm
 ```
 
-These can be overriiden in the Puppet Console Configuration section or in the three independent layers of configuration.
+A node deffinition file should be created because some vales are required.
+
+liagent::srv_hostname:
+
+and 
+
+liagent::loginsight_repo: 
+
+
+For example:
+
+/etc/puppetlabs/code/environments/dev/data/nodes/node1.localdomain.yaml
+
+```
+liagent::srv_hostname: 'loginsight.localdomain'
+liagent::package_manage: true
+liagent::package: 'VMware-Log-Insight-Agent'
+liagent::version: '4.7.0-9602262'
+liagent::loginsight_repo: 'LogInsight_Agent'
+```
+
+These can be overidden in the Puppet Console Configuration section or in the three independent layers of configuration.
 
 1. Global
 2. Environment
