@@ -346,3 +346,7 @@ Here are some great tutorials from [sysadmintutorials.com](https://www.sysadmint
 [![vSphere 6.7 - How to install and configure VMware vCenter 6.7 Appliance](http://img.youtube.com/vi/U-rilkWMkO4/0.jpg)](http://www.youtube.com/watch?v=U-rilkWMkO4)
 
 [![vSphere 6.5 - How to install and configure VMware vRealize Log Insight 4](http://img.youtube.com/vi/aJeTBO_rWms/0.jpg)](http://www.youtube.com/watch?v=aJeTBO_rWms)
+
+## Contributors
+
+Contributers very, very welcome and I'll buy you a beer if we meet at Puppetconf or meetups.
