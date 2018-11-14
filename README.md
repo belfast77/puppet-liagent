@@ -198,6 +198,124 @@ https://puppet.com/docs/puppet/5.0/hiera_migrate_modules.html#module-data-with-y
 
 https://puppet.com/docs/puppet/5.0/hiera_layers.html
 
+## Hiera Data Options
+
+Hostname or IP address of your Log Insight server . String
+
+`liagent::srv_hostname:` 
+
+Manage the Loginsight Service . Boolean True or false
+
+`liagent::service_manage:` true
+
+Ensure the Loginsight Service files have been created. Boolean True or false
+
+`liagent::service_ensure:` true
+
+Ensure the Loginsight Service is enabled. Boolean True or false
+
+`liagent::service_enable:` true
+
+The name of the Loginsight service. String 
+
+`liagent::service_name:` 'liagentd'
+
+Should this module also also managed the package ? Boolean True or false
+
+`liagent::package_manage:` true
+
+The Name of the Loginsight Package . String
+
+`liagent::package:` 'VMware-Log-Insight-Agent'
+
+The Version number of the Loginsight Package . String
+
+`liagent::version:` '4.7.0-9602262'
+
+Name of the Loginsight repo. String
+
+`liagent::loginsight_repo:` 'LogInsight_Agent'
+
+Path to the Loginsight config file . Absolutepath . Default: null
+
+`liagent::config_file::` ~
+
+Protocol can be cfapi (Log Insight REST API), syslog. Default:
+
+`liagent::proto:` 'cfapi'
+
+Log Insight server port to connect to. Default ports for protocols (all TCP):
+syslog: 514; syslog with ssl: 6514; cfapi: 9000; cfapi with ssl: 9543. Default:
+
+`liagent::port:` 9543
+
+Is SSL to be used ? String
+
+`liagent::ssl:` 'yes'
+
+Path to the ssl_ca file . Absolutepath . Default: null
+
+`liagent::ssl_ca_path:` ~
+
+Time in minutes to force reconnection to the server.
+
+This option mitigates imbalances caused by long-lived TCP connections. Default: null
+
+`liagent::reconnect:` ~ 
+
+Allow the agent to receive central configuration from the server.
+If disabled, only agent-side configuration will be applied. Default: No
+
+`liagent::central_config:` 'no'
+
+Time in minutes to force reconnection to the server.
+
+This option mitigates imbalances caused by long-lived TCP connections. Default: null
+
+`liagent::debug_level:` ~
+
+Frequency to print agent dynamic information in minutes. Default: null
+
+`liagent::stats_period:` ~ 
+
+Allow the agent to automatically decrease dynamic information print period to 1 minute
+in case if agent abnormal performance is detected.
+If disabled, agent performance won't be monitored at all. StringDefault:  No
+
+`liagent::smart_stats:` 'no'
+
+Max local storage usage limit (data + logs) in MBs. Valid range: 100-2000 MB.
+
+`liagent::max_disk_buffer:` ~
+
+Uncomment the appropriate section to collect system logs
+The recommended way is to enable the Linux content pack from LI server. String  Default: syslog
+
+`liagent::logtype:` ~
+
+Path to the log file directory . Absolutepath . Default: /var/log
+
+`liagent::directory:` ~
+
+List of files to be read in the "liagent::directory" . String
+
+`liagent::include:` ~
+
+Type of Package . String . Default : null
+
+`liagent::package_type:` ~
+
+Enable automatic update of the agent. If enabled:
+the agent will silently check for updates from the server and
+if available will automatically download and apply the update.
+
+`liagent::auto_update:` 'no'
+
+ Default provider Puppet uses to manage services on the system.
+ 
+`liagent::service_provider:` ~
+
+
 ## Reference
 
 This section is deprecated. Instead, add reference information to your code as Puppet Strings comments, and then use Strings to generate a REFERENCE.md in your module. For details on how to add code comments and generate documentation with Strings, see the Puppet Strings [documentation](https://puppet.com/docs/puppet/latest/puppet_strings.html) and [style guide](https://puppet.com/docs/puppet/latest/puppet_strings_style.html)
