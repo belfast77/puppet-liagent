@@ -80,7 +80,7 @@ Import and Configure VMware vCenter Server Appliance 6.7.0U1
 
 Import VMware vRealize Log Insight 4.7.0 - Virtual Appliance via vCenter Server
 
-+ Note a resaonable spec lab setup is required, this was tested on a
++ Note a reasonable spec lab setup is required, this was tested on a
 + Intel ® NUC6I7KYK Micro Intel® 2600 MHz SOC, IRIS PRO 580. With 32GB Ram
 + Check https://www.vmware.com/resources/compatibility/search.php
 + vCenter Server Appliance - Tiny environment (up to 10 hosts or 100 virtual machines) requires 2 vCPUs & 10 GB Ram
