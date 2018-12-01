@@ -113,10 +113,10 @@ Once the VMware vRealize Log Insight agent packages are hosted in the users repo
 
 ## Usage
 
-If a user is installing liagent with packages provided from their local custom repo, this is the most basic way of installing Splunk Server with default settings:
+If a user is installing liagent with packages provided from their local custom repo, this is the most basic way of installing liagent with default settings:
 
 ```
-include ::splunk
+include ::liagent
 ```
 This module uses in-module Hiera data. The data directory contains the Hiera files.
 
