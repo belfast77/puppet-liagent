@@ -1,4 +1,4 @@
-# liagent ( VMware Log Insight Agent )
+# puppet liagent ( VMware Log Insight Agent )
 
 #### Table of Contents
 
