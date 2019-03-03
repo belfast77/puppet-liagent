@@ -2,5 +2,5 @@
 liagent::config_file: '/var/lib/loginsight-agent/liagent.ini'
 liagent::logtype: 'syslog'
 liagent::directory: '/var/log'
-liagent::include: 'include=messages;messages.?;syslog;syslog.?'
+liagent::include: 'messages;messages.?;syslog;syslog.?'
 liagent::package_type: 'rpm'
